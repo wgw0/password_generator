@@ -94,6 +94,11 @@ div.optionCheck {
     margin: 50px
   }
 
+  #strengthOutput{
+      text-align: center;
+      font-weight: bold;
+  }
+
   button {
     background-color: #FFFFFF;
     border: 1px solid rgb(209,213,219);

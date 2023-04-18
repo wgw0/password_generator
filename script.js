@@ -68,3 +68,31 @@ copyButton.addEventListener("click", () => {
     document.getElementById("copyButton").textContent = ("Failed to copy password to clipboard");
   });
 });
+
+const strengthTester = document.getElementById("strengthTester");
+const strengthOutput = document.getElementById("strengthOutput");
+
+strengthTester.addEventListener("keypress", () => {
+  generateStrength()
+});
+
+async function generateStrength() {
+  const input = strengthTester.value;
+  const inputLength = input.length;
+  let hasSymbolsOrNumbers = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?0-9]/.test(input);
+
+  if (inputLength < 4) {
+    strengthOutput.textContent = "Weak";
+  } else if (inputLength < 8 && !hasSymbolsOrNumbers) {
+    strengthOutput.textContent = "Weak";
+  } else if (inputLength < 8) {
+    strengthOutput.textContent = "Quite Weak";
+  } else if (inputLength < 12 && !hasSymbolsOrNumbers) {
+    strengthOutput.textContent = "Average";
+  } else if (inputLength < 12) {
+    strengthOutput.textContent = "Average";
+  } else {
+    strengthOutput.textContent = "Strong";
+  }
+  
+}
